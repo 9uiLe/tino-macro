@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "3C861BB8-9CDC-4949-8579-008FD7D7A69E",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "TinoMacroTests",
+        "name" : "TinoMacroTests"
+      }
+    }
+  ],
+  "version" : 1
+}

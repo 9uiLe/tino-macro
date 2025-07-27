@@ -1,9 +1,11 @@
+import Foundation
 import TinoMacro
 
 @Equatable
-struct User {
+struct User: Identifiable {
+    let id = UUID()
     let name: String
-    let age: Int
+    @SkipEquatable let age: Int
 
     @SkipEquatable var loggedIn: () -> Bool
 
@@ -15,9 +17,8 @@ struct User {
 }
 
 let userName = "John"
-let age = 30
-let loggedIn = User(name: userName, age: age) { true }
-let loggedOut = User(name: userName, age: age) { false }
+let loggedIn = User(name: userName, age: 30) { true }
+let loggedOut = User(name: userName, age: 25) { false }
 let copy = loggedIn
 
 // クロージャは比較されずに、true になるはず
