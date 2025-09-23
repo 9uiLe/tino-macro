@@ -10,7 +10,7 @@
 
 - `@Equatable` を付与することで、オブジェクトを Equatable に適合させます
 - `@SkipEquatable` をプロパティに付与することで比較条件から対象を除外することができます
-- SwiftUI.View の body が比較されません
+- SwiftUI.View の body は比較されません
 
 **✅ 利用方法**
 
