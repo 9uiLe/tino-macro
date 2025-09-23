@@ -6,5 +6,6 @@ struct TinoMacroPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         EquatableMacro.self,
         SkipEquatableMacro.self,
+        MetadataMacro.self,
     ]
 }

@@ -2,7 +2,7 @@ import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
-import XCTest
+import Testing
 
 #if canImport(TinoMacroMacros)
     import TinoMacroMacros
@@ -13,7 +13,9 @@ import XCTest
     ]
 #endif
 
-final class EquatableMacroTests: XCTestCase {
+@Suite("Equatable Macro Test")
+struct EquatableMacroTests {
+    @Test("Equatable Macro の基本機能")
     func testEquatableMacro() throws {
         #if canImport(TinoMacroMacros)
             assertMacroExpansion(
@@ -43,13 +45,13 @@ final class EquatableMacroTests: XCTestCase {
                 macros: equatableMacros
             )
         #else
-            throw XCTSkip(
-                "macros are only supported when running tests for the host platform"
+            throw TestSkipError(
+                "マクロはホストプラットフォーム用のテスト実行時にのみサポートされています"
             )
         #endif
     }
 
-    /// プロパティが存在しない
+    @Test("プロパティが存在しない場合")
     func testNoProperty() throws {
         #if canImport(TinoMacroMacros)
             assertMacroExpansion(
@@ -69,13 +71,13 @@ final class EquatableMacroTests: XCTestCase {
                 macros: equatableMacros
             )
         #else
-            throw XCTSkip(
-                "macros are only supported when running tests for the host platform"
+            throw TestSkipError(
+                "マクロはホストプラットフォーム用のテスト実行時にのみサポートされています"
             )
         #endif
     }
 
-    /// SwiftUI.View が extension されていない場合は、body を除外しない
+    @Test("SwiftUI.View が extension されていない場合は、body を除外しない")
     func testNoViewExtension() throws {
         #if canImport(TinoMacroMacros)
             assertMacroExpansion(
@@ -107,13 +109,13 @@ final class EquatableMacroTests: XCTestCase {
                 macros: equatableMacros
             )
         #else
-            throw XCTSkip(
-                "macros are only supported when running tests for the host platform"
+            throw TestSkipError(
+                "マクロはホストプラットフォーム用のテスト実行時にのみサポートされています"
             )
         #endif
     }
 
-    /// SwiftUI.View が extension されている場合は、body を除外する
+    @Test("View body 除外テスト")
     func testExcludeViewBody() throws {
         #if canImport(TinoMacroMacros)
             assertMacroExpansion(
@@ -157,8 +159,8 @@ final class EquatableMacroTests: XCTestCase {
                 macros: equatableMacros
             )
         #else
-            throw XCTSkip(
-                "macros are only supported when running tests for the host platform"
+            throw TestSkipError(
+                "マクロはホストプラットフォーム用のテスト実行時にのみサポートされています"
             )
         #endif
     }
