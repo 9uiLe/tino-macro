@@ -7,5 +7,6 @@ struct TinoMacroPlugin: CompilerPlugin {
         EquatableMacro.self,
         SkipEquatableMacro.self,
         MetadataMacro.self,
+        LocalizedTextMacro.self
     ]
 }
