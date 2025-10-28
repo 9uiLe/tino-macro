@@ -69,6 +69,7 @@ public struct EquatableMacro: ExtensionMacro {
         // 5. "==" メソッドを持つ extension を生成
         let equatableExtension = try ExtensionDeclSyntax(
             """
+            @MainActor
             extension \(type.trimmed): Equatable {
                 public static func == (lhs: \(type.trimmed), rhs: \(type.trimmed)) -> Bool {
                     return \(raw: comparisons)
