@@ -5,8 +5,6 @@ import SwiftSyntaxMacros
 struct TinoMacroPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         EquatableMacro.self,
-        SkipEquatableMacro.self,
-        MetadataMacro.self,
-        LocalizedTextMacro.self
+        SkipEquatableMacro.self
     ]
 }
