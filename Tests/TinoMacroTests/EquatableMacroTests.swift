@@ -36,7 +36,7 @@ struct EquatableMacroTests {
                         var loggedIn: () -> Bool
                     }
 
-                    extension User: Equatable {
+                    extension User: @MainActor Equatable {
                         public static func == (lhs: User, rhs: User) -> Bool {
                             return lhs.name == rhs.name && lhs.age == rhs.age
                         }
@@ -62,7 +62,7 @@ struct EquatableMacroTests {
                 expandedSource: """
                     struct User {}
 
-                    extension User: Equatable {
+                    extension User: @MainActor Equatable {
                         public static func == (lhs: User, rhs: User) -> Bool {
                             return true
                         }
@@ -100,7 +100,7 @@ struct EquatableMacroTests {
                         var loggedIn: () -> Bool
                     }
 
-                    extension User: Equatable {
+                    extension User: @MainActor Equatable {
                         public static func == (lhs: User, rhs: User) -> Bool {
                             return lhs.name == rhs.name && lhs.age == rhs.age && lhs.body == rhs.body
                         }
@@ -150,7 +150,7 @@ struct EquatableMacroTests {
                         }
                     }
 
-                    extension UserView: Equatable {
+                    extension UserView: @MainActor Equatable {
                         public static func == (lhs: UserView, rhs: UserView) -> Bool {
                             return lhs.name == rhs.name && lhs.age == rhs.age
                         }
