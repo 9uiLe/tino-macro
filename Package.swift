@@ -7,9 +7,7 @@ let package = Package(
     name: "tino-macro",
     platforms: [
         .iOS(.v13),
-        .macOS(.v10_15),
-        .tvOS(.v13),
-        .watchOS(.v6),
+        .macOS(.v13),
     ],
     products: [
         .library(
@@ -22,10 +20,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(
-            url: "https://github.com/swiftlang/swift-syntax.git",
-            exact: "601.0.1"
-        )
+        .package(url: "https://github.com/swiftlang/swift-syntax.git", exact: "601.0.1")
     ],
     targets: [
         .macro(
@@ -38,7 +33,11 @@ let package = Package(
             ]
         ),
         .target(name: "TinoMacro", dependencies: ["TinoMacroMacros"]),
-        .executableTarget(name: "TinoMacroClient", dependencies: ["TinoMacro"]),
+        .executableTarget(
+            name: "TinoMacroClient",
+            dependencies: ["TinoMacro"],
+            resources: [.process("Resources")]
+        ),
         .testTarget(
             name: "TinoMacroTests",
             dependencies: [

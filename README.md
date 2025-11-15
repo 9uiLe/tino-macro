@@ -39,3 +39,22 @@ let copy = loggedIn
 print(loggedIn == copy)
 print(loggedIn == loggedOut)
 ```
+
+### L10n
+
+- String Catalog を扱いやすくするためのマクロです
+- `#L10n` を利用してビルドすることで、`Localized.xcstrings` に Key & Value を生成します
+- `Bundle` はデフォルトが `.module`、必要に応じて `.main` に切り替えてください
+
+**✅ 利用方法**
+
+```swift
+static let title = #L10n("home.title", defaultValue: "ホーム")
+
+// 以下が生成されます
+static let title = LocalizedStringResource(
+    "home.title",
+    defaultValue: String.LocalizationValue("ホーム"),
+    bundle: .module
+)
+```

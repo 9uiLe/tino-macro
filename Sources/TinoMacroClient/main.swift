@@ -25,3 +25,11 @@ let copy = loggedIn
 print(loggedIn == copy)
 print(loggedIn == loggedOut)
 
+enum L10n {
+    /// LocalizedStringKey: home.header.title
+    /// defaultValue: ホーム
+    static let title = #L10n(
+        "home.header.title",
+        defaultValue: "ホーム"
+    )
+}
