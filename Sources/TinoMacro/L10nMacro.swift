@@ -19,6 +19,6 @@ public enum ResourceBundle {
 @freestanding(expression)
 public macro L10n(
     _ key: StaticString,
-    defaultValue: StaticString,
+    defaultValue: String,
     bundle: ResourceBundle = .module
 ) -> LocalizedStringResource = #externalMacro(module: "TinoMacroMacros", type: "L10nMacro")
